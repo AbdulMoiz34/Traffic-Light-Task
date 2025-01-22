@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .notSelected {
+            background-color: #6c6c6c7e !important;
+        }
+
+        .imgStart {
+            animation: startEngine 2s infinite alternate;
+        }
+
+        @keyframes startEngine {
+            0% {
+                transform: translateX(0) scale(1);
+            }
+
+            25% {
+                transform: translateX(2px) scale(1.01);
+            }
+
+            50% {
+                transform: translateX(-2px) scale(1);
+            }
+
+            75% {
+                transform: translateX(1px) scale(1.01);
+            }
+
+            100% {
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="roadImg.jpg" alt="" class="img w-screen h-screen" />
+    <img src="carImg.png" alt="" class="w-[30vw] absolute bottom-[1vw]" id="img" />
+    <div class="line bg-black w-screen h-[.2vw] absolute bottom-[1.2vw]"></div>
+    <div class="container absolute bottom-[10vw] w-[7vw] h-[48vh] right-[4vw] bg-black border-red-700 border-[.1vw]">
+        <button class="light w-full h-[14vh] rounded-[50%]   bg-red-500 mb-1 border-none appearance-none mt-1"
+            onclick="trafficLight('red')" id="red"></button>
+        <button class="light w-full h-[14vh] rounded-[50%]  bg-yellow-500 mb-1 border-none appearance-none notSelected"
+            onclick="trafficLight('yellow')" id="yellow"></button>
+        <button class="light w-full h-[14vh] rounded-[50%]  bg-green-500 border-none appearance-none notSelected"
+            onclick="trafficLight('green')" id="green"></button>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
